@@ -24,7 +24,7 @@ export const postContext = async (req, res) => {
         createdAt: contextSaved.createdAt,
         updatedAt: contextSaved.updatedAt,
     });
-    console.log(req.user.id);
+    
     }catch{
         res.status(500).json({message: "Error al crear el contexto"});
     }
