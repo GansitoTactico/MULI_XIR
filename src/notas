@@ -1,4 +1,0 @@
-mañana arregla el problema de navegacion del register, ya que al registrarse
-no dirige al usuario a start page si no que lo ingresa directamente a la pagina de tareas.
-# File: MULI_XIR_FRONTEND/src/pages/RegisterPage.jsx
-

@@ -12,6 +12,7 @@ import Rutas_Protegidas from "./Rutas_Protegidas.jsx";
 import Contextos_Protegidos from "./contextos_protegidos.jsx";
 import { TaskProvider } from "./context/TaskContext.jsx";
 import { RegionalProvider } from "./context/RegionalContext.jsx";
+import Pagina_prueba_TF from "./pages/pagina_prueba_TF.jsx";
 
 function app() {
   return (

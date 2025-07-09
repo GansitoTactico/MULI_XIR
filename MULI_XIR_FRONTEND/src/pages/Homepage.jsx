@@ -10,6 +10,9 @@ function Homepage() {
   const mainRef = useRef(null);
   const buttonRefs = [useRef(null), useRef(null), useRef(null)];
   const ctaRef = useRef(null);
+  const bgRef = useRef(null);
+  const gradientRef = useRef(null);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     // Fade-in animation for main content
@@ -50,28 +53,52 @@ function Homepage() {
         { duration: 1800, iterations: Infinity, easing: "ease-in-out" }
       );
     }
+
+    // Parallax effect
+    const handleParallax = () => {
+      const scrollY = window.scrollY;
+      // Fondo imagen
+      if (bgRef.current) {
+        bgRef.current.style.transform = `translateY(${
+          scrollY * 0.25
+        }px) scale(1.03)`;
+      }
+      // Gradiente overlay
+      if (gradientRef.current) {
+        gradientRef.current.style.transform = `translateY(${scrollY * 0.18}px)`;
+      }
+      // Canvas 3D
+      if (canvasRef.current) {
+        canvasRef.current.style.transform = `translateY(${scrollY * 0.12}px)`;
+      }
+    };
+    window.addEventListener("scroll", handleParallax, { passive: true });
+    return () => window.removeEventListener("scroll", handleParallax);
   }, [error]);
 
   return (
     <div
       style={{
-        minHeight: "100vh",
+        minHeight: "130vh",
         background: "linear-gradient(135deg, #232526 0%, #414345 100%)",
         display: "flex",
         flexDirection: "column",
         color: "#fff",
         fontFamily: "Segoe UI, sans-serif",
         overflowX: "hidden",
-        position: "relative", // Necesario para stacking context
+        position: "relative",
       }}
     >
-      {/* Canvas 3D por encima de todo */}
+      {/* Canvas 3D con parallax */}
       <div
+        ref={canvasRef}
         style={{
           position: "fixed",
           inset: 0,
-          zIndex: 1000, // Muy alto para estar por encima de todo
-          pointerEvents: "none", // Permite interacción con elementos debajo
+          zIndex: 1000,
+          pointerEvents: "none",
+          willChange: "transform",
+          transition: "transform 0.2s cubic-bezier(.4,2,.6,1)",
         }}
       >
         <Canvas
@@ -242,7 +269,9 @@ function Homepage() {
           justifyContent: "center",
         }}
       >
+        {/* Fondo con parallax */}
         <div
+          ref={bgRef}
           style={{
             position: "absolute",
             inset: 0,
@@ -252,16 +281,22 @@ function Homepage() {
             backgroundPosition: "center",
             filter: "blur(3px) brightness(0.9)",
             pointerEvents: "none",
+            willChange: "transform",
+            transition: "transform 0.2s cubic-bezier(.4,2,.6,1)",
           }}
         />
 
+        {/* Gradiente overlay con parallax */}
         <div
+          ref={gradientRef}
           style={{
             position: "absolute",
             inset: 0,
             background: "linear-gradient(135deg, #232526cc 0%, #414345cc 100%)",
             zIndex: 1,
             pointerEvents: "none",
+            willChange: "transform",
+            transition: "transform 0.2s cubic-bezier(.4,2,.6,1)",
           }}
         />
         <div
@@ -353,26 +388,21 @@ function Homepage() {
           overflow: "hidden",
         }}
       >
-        <h2
-          style={{
-            color: "#fff",
-            marginBottom: "1rem",
-            fontWeight: "bold",
-            letterSpacing: "1px",
-            background: "linear-gradient(90deg, #ffb347, #ffcc33, #f7971e)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            animation: "gradient-move 3s linear infinite alternate",
-          }}
-        >
-          Sobre el Proyecto
-        </h2>
         <p
           style={{
             maxWidth: 700,
             margin: "0 auto",
             fontSize: "1.1rem",
             transition: "color 0.3s",
+            background: "rgba(36,37,38,0.85)",
+            borderRadius: "14px",
+            padding: "1.1rem 1.7rem",
+            color: "#e4e6eb",
+            boxShadow: "0 1px 8px 0 #23252622",
+            marginTop: "1.2rem",
+            marginBottom: "0",
+            lineHeight: 1.6,
+            textAlign: "center",
           }}
           className="footer-description"
         >
