@@ -9,7 +9,7 @@ export const postContext = async (req, res) => {
         estado,
         municipio,
         experiencia, 
-        user: req.user.id, // Asegúrate de que req.user esté definido y contenga el ID del usuario autenticado
+        user: req.user.id, 
     });
     
     const contextSaved = await newContext.save();

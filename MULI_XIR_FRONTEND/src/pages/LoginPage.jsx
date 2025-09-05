@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import fondoImg from "../assets/fondo.jpg";
+import fondoIMG from "../assets/fondoNocturno.jpg";
 
 function LoginPage() {
   const {
@@ -26,7 +26,7 @@ function LoginPage() {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: `url(${fondoImg})`,
+          backgroundImage: `url(${fondoIMG})`,
           filter: "blur(8px)",
           zIndex: 0,
         }}

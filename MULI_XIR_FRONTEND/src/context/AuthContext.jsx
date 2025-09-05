@@ -3,6 +3,7 @@ import {
   createContext,
   useState,
   useContext,
+  getUsers,
   useEffect,
 } from "react";
 import { registerRequest, LoginRequest, VerifyToken } from "../api/auth";
@@ -21,6 +22,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [usuario, setUsuario] = useState(null);
   const [isAuthenticated, SetisAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,6 +51,16 @@ export const AuthProvider = ({ children }) => {
       setErrors([error.response.data.message]);
     }
   };
+
+  const getUser = async (user) => {
+    try {
+      const usuario = await getUsers(user);
+      setUsuario(usuario.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const logout = () => {
     cookie.remove("token");
     SetisAuthenticated(false);
@@ -98,8 +110,10 @@ export const AuthProvider = ({ children }) => {
       value={{
         signup,
         signin,
+        getUser,
         logout,
         user,
+        usuario,
         loading,
         isAuthenticated,
         errors,

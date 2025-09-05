@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src\assets\fondo.jpg
+src\assets\fondoNocturno.jpg
+src\assets\iconoMas.png
+src\assets\iconoMas2.png

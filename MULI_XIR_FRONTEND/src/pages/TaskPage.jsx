@@ -5,9 +5,11 @@ import TaskCard from "../components/TaskCard";
 
 function TaskPage() {
   const { getTasks, task } = useTask();
+
   useEffect(() => {
     getTasks();
   }, []);
+
   if (!task || task.length === 0) {
     return (
       <div>

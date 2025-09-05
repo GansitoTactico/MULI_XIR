@@ -2,13 +2,16 @@ import { useRegionalContext } from "../context/RegionalContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { UseLLM } from "../context/LLMContext";
+import fondoIMG from "../assets/fondoNocturno.jpg";
 
 function Start_page() {
   const onSubmit = (data) => {
     CreateContext(data);
-    console.log(data);
+    createResponse(data);
   };
   const { CreateContext, ContextTrue } = useRegionalContext();
+  const { createResponse } = UseLLM();
 
   const countries = [
     { name: "Argentina", flag: "🇦🇷" },
@@ -27,23 +30,42 @@ function Start_page() {
 
   useEffect(() => {
     if (ContextTrue) {
-      navigate("/tasks"); // O la ruta que corresponda
+      navigate("/LoadingPage");
     }
   }, [ContextTrue, navigate]);
 
   return (
     <div
       style={{
+        position: "relative",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "linear-gradient(135deg, #232526 0%, #414345 100%)",
       }}
     >
+      {/* Fondo con blur */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url(${fondoIMG})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(5px)",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Formulario */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{
+          position: "relative", // Añadido
           background: "#18191a",
           padding: "2.5rem 2rem",
           borderRadius: "16px",
@@ -53,9 +75,10 @@ function Start_page() {
           gap: "1.5rem",
           minWidth: "320px",
           color: "#f1f1f1",
+          zIndex: 1,
         }}
       >
-        <label style={{ fontWeight: 500, marginBottom: "0.5rem" }}>
+        <label style={{ fontWeight: 500, marginBottom: "0.5rem", zIndex: 1 }}>
           Selecciona tu país
           <select
             required
@@ -66,6 +89,7 @@ function Start_page() {
               marginTop: "0.5rem",
               width: "100%",
               padding: "0.75rem",
+              zIndex: 1,
               borderRadius: "8px",
               border: "1px solid #333",
               background: "#232526",
@@ -98,6 +122,7 @@ function Start_page() {
               marginTop: "0.5rem",
               width: "100%",
               padding: "0.75rem",
+              zIndex: 1,
               borderRadius: "8px",
               border: "1px solid #333",
               background: "#232526",
@@ -120,6 +145,7 @@ function Start_page() {
               width: "100%",
               padding: "0.75rem",
               borderRadius: "8px",
+              zIndex: 1,
               border: "1px solid #333",
               background: "#232526",
               color: "#f1f1f1",
@@ -133,7 +159,9 @@ function Start_page() {
           <input
             type="text"
             id="experiencia"
-            {...register("experiencia", { required: "este dato es necesario" })}
+            {...register("experiencia", {
+              required: "este dato es necesario",
+            })}
             placeholder="Ingresa tu conocimiento"
             required
             style={{
@@ -143,6 +171,7 @@ function Start_page() {
               borderRadius: "8px",
               border: "1px solid #333",
               background: "#232526",
+              zIndex: 1,
               color: "#f1f1f1",
               outline: "none",
               fontSize: "1rem",
@@ -158,6 +187,7 @@ function Start_page() {
             border: "none",
             background: "linear-gradient(90deg, #232526 0%, #414345 100%)",
             color: "#fff",
+            zIndex: 1,
             fontWeight: 600,
             fontSize: "1.1rem",
             cursor: "pointer",

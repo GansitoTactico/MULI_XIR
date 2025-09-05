@@ -17,9 +17,10 @@ const modelo_usuario = new mongoose.Schema({
         type: String,
         require: true,
         Trim: true
-    }    
+    },
+        
 },{
-    timestamps: true
+    timestamps: true,
 });
 
 export default mongoose.model("User", modelo_usuario);

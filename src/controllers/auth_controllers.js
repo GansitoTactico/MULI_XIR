@@ -37,6 +37,12 @@ export const register = async (req, res) => {
     }
 };
 
+export const getUser = async (req,res) => {
+    const userFound = await User.findById(req.user.id);
+    res.json(userFound);
+
+}
+
 export const login = async (req, res) => {
     const {password,email} = req.body;
 

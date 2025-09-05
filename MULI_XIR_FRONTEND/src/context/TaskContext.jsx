@@ -8,7 +8,7 @@ import {
   updateTasksrequest,
 } from "../api/task";
 
-const TaskContext = createContext();
+export const TaskContext = createContext();
 
 export const useTask = () => {
   const context = useContext(TaskContext);

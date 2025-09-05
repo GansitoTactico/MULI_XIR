@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import CursorFollowerModel from "../components/Comportamiento_Mulix.jsx";
-import fondoImg from "../assets/fondo.jpg";
+import fondoIMG from "../assets/fondoNocturno.jpg";
 import { error } from "cros/common/logger.js";
 
 function Homepage() {
@@ -79,7 +79,7 @@ function Homepage() {
   return (
     <div
       style={{
-        minHeight: "130vh",
+        minHeight: "126vh",
         background: "linear-gradient(135deg, #232526 0%, #414345 100%)",
         display: "flex",
         flexDirection: "column",
@@ -275,11 +275,11 @@ function Homepage() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url(${fondoImg})`,
+            backgroundImage: `url(${fondoIMG})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "blur(3px) brightness(0.9)",
+            filter: "blur(6px) brightness(0.9)",
             pointerEvents: "none",
             willChange: "transform",
             transition: "transform 0.2s cubic-bezier(.4,2,.6,1)",
@@ -292,7 +292,6 @@ function Homepage() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(135deg, #232526cc 0%, #414345cc 100%)",
             zIndex: 1,
             pointerEvents: "none",
             willChange: "transform",

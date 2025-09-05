@@ -4,7 +4,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
-import fondoImg from "../assets/fondo.jpg";
+import fondoIMG from "../assets/fondoNocturno.jpg";
 
 function RegisterPage() {
   const {
@@ -30,7 +30,7 @@ function RegisterPage() {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: `url(${fondoImg})`,
+          backgroundImage: `url(${fondoIMG})`,
           filter: "blur(8px)",
           zIndex: 0,
         }}
