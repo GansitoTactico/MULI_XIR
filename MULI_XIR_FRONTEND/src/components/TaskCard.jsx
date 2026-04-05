@@ -11,8 +11,8 @@ function TaskCard({ res }) {
     <div
       className="task-card"
       style={{
-        background: "#232529",
-        color: "#fff",
+        background: "var(--nav-background)",
+        color: "var(--text-primary)",
         borderRadius: "8px",
         boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
         padding: "20px",
@@ -36,16 +36,16 @@ function TaskCard({ res }) {
         e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
       }}
     >
-      <h1 style={{ fontSize: "1.25rem", margin: "0 0 12px 0", color: "#fff" }}>
+      <h1 style={{ fontSize: "1.25rem", margin: "0 0 12px 0", color: "var(--text-primary)" }}>
         {res.title}
       </h1>
-      <p style={{ color: "#fff", margin: 0 }}>{res.descripcion}</p>
+      <p style={{ color: "var(--text-secondary)", margin: 0 }}>{res.descripcion}</p>
       <div className="grid grid-cols-2 gap-2 mt-4">
         <Link
           to={`/tasks/${res._id}`}
           style={{
-            border: "2px solid #2563eb",
-            color: "#2563eb",
+            border: "2px solid var(--accent-color-1)",
+            color: "var(--accent-color-1)",
             background: "transparent",
             textAlign: "center",
             borderRadius: "6px",
@@ -55,14 +55,12 @@ function TaskCard({ res }) {
             cursor: "pointer",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#000";
-            e.currentTarget.style.borderColor = "#60a5fa";
-            e.currentTarget.style.color = "#60a5fa";
+            e.currentTarget.style.background = "var(--accent-color-1)";
+            e.currentTarget.style.color = "var(--dark-background)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.borderColor = "#2563eb";
-            e.currentTarget.style.color = "#2563eb";
+            e.currentTarget.style.color = "var(--accent-color-1)";
           }}
         >
           Editar
@@ -74,8 +72,8 @@ function TaskCard({ res }) {
             }
           }}
           style={{
-            border: "2px solid #2563eb",
-            color: "#2563eb",
+            border: "2px solid var(--accent-color-3)",
+            color: "var(--accent-color-3)",
             background: "transparent",
             borderRadius: "6px",
             padding: "8px 0",
@@ -84,14 +82,12 @@ function TaskCard({ res }) {
             cursor: "pointer",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#000";
-            e.currentTarget.style.borderColor = "#60a5fa";
-            e.currentTarget.style.color = "#60a5fa";
+            e.currentTarget.style.background = "var(--accent-color-3)";
+            e.currentTarget.style.color = "var(--dark-background)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.borderColor = "#2563eb";
-            e.currentTarget.style.color = "#2563eb";
+            e.currentTarget.style.color = "var(--accent-color-3)";
           }}
         >
           Borrar

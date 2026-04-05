@@ -9,7 +9,7 @@ export const generateUserTensor = async (req, res, next) => {
 
   try{
   const user = req.user || (req.session && req.session.user);
-  
+
   if (!user || !user.id) {
     const error = new Error('Usuario no disponible en el request');
     error.statusCode = 401;
@@ -32,7 +32,7 @@ export const generateUserTensor = async (req, res, next) => {
     municipio: datos.municipio,
     experiencia: datos.experiencia,
   };
-  
+
 
   // Convertir los datos numericos en un tensor de dos dimensiones
   const tensor = tf.tensor2d(
@@ -41,22 +41,22 @@ export const generateUserTensor = async (req, res, next) => {
   );
 
   async function processText() {
- 
-  const model = await load();  
 
-  const texts = tensor.arraySync()[0]; 
+  const model = await load();
+
+  const texts = tensor.arraySync()[0];
 
   const embeddings = await model.embed(texts);
 
-  console.log(embeddings.shape);   
-  
+  console.log(embeddings.shape);
+
   const avgEmbedding = embeddings.mean(0);
 
   return avgEmbedding;
 }
   console.log(processText());
   const embedding = await processText();
-  
+
   // se normalizan los valores numericos de entrada para aumentar su eficiencia escalandolos
   const normalizedTensor = embedding.div(tf.scalar(2));
   const data = await normalizedTensor.array();
@@ -68,7 +68,7 @@ export const generateUserTensor = async (req, res, next) => {
   const newTensor = new tensormodels({
     user: user.id,
     tensor: normalizedTensor,
-  });  
+  });
   const saveTensor = await newTensor.save();
 
   res.json({
@@ -81,12 +81,12 @@ export const generateUserTensor = async (req, res, next) => {
   console.log(res.json);
 
   next();
-  
+
   }catch(error){
     console.error(error);
 
   }
- 
+
 }
 /*return {
     tensor: await normalizedTensor.array(),
@@ -94,6 +94,6 @@ export const generateUserTensor = async (req, res, next) => {
       datos,
       generatedAt: new Date(),
       featuresUsed: Object.keys(caracteristicas)
-      
+
     }
   };*/

@@ -6,9 +6,9 @@ import { UseLLM } from "../context/LLMContext";
 import fondoIMG from "../assets/fondoNocturno.jpg";
 
 function Start_page() {
-  const onSubmit = (data) => {
-    CreateContext(data);
-    createResponse(data);
+  const onSubmit = async (data) => {
+    await CreateContext(data);
+    createResponse();
   };
   const { CreateContext, ContextTrue } = useRegionalContext();
   const { createResponse } = UseLLM();
@@ -42,6 +42,7 @@ function Start_page() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background: "var(--background-gradient)",
       }}
     >
       {/* Fondo con blur */}
@@ -66,7 +67,7 @@ function Start_page() {
         onSubmit={handleSubmit(onSubmit)}
         style={{
           position: "relative", // Añadido
-          background: "#18191a",
+          background: "var(--nav-background)",
           padding: "2.5rem 2rem",
           borderRadius: "16px",
           boxShadow: "0 4px 32px rgba(0,0,0,0.25)",
@@ -74,7 +75,7 @@ function Start_page() {
           flexDirection: "column",
           gap: "1.5rem",
           minWidth: "320px",
-          color: "#f1f1f1",
+          color: "var(--text-primary)",
           zIndex: 1,
         }}
       >
@@ -92,8 +93,8 @@ function Start_page() {
               zIndex: 1,
               borderRadius: "8px",
               border: "1px solid #333",
-              background: "#232526",
-              color: "#f1f1f1",
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
               outline: "none",
               fontSize: "1rem",
               appearance: "none",
@@ -125,8 +126,8 @@ function Start_page() {
               zIndex: 1,
               borderRadius: "8px",
               border: "1px solid #333",
-              background: "#232526",
-              color: "#f1f1f1",
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
               outline: "none",
               fontSize: "1rem",
             }}
@@ -147,8 +148,8 @@ function Start_page() {
               borderRadius: "8px",
               zIndex: 1,
               border: "1px solid #333",
-              background: "#232526",
-              color: "#f1f1f1",
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
               outline: "none",
               fontSize: "1rem",
             }}
@@ -170,9 +171,9 @@ function Start_page() {
               padding: "0.75rem",
               borderRadius: "8px",
               border: "1px solid #333",
-              background: "#232526",
+              background: "var(--dark-background)",
               zIndex: 1,
-              color: "#f1f1f1",
+              color: "var(--text-primary)",
               outline: "none",
               fontSize: "1rem",
             }}
@@ -185,8 +186,8 @@ function Start_page() {
             padding: "0.75rem",
             borderRadius: "8px",
             border: "none",
-            background: "linear-gradient(90deg, #232526 0%, #414345 100%)",
-            color: "#fff",
+            background: "var(--accent-gradient)",
+            color: "var(--dark-background)",
             zIndex: 1,
             fontWeight: 600,
             fontSize: "1.1rem",

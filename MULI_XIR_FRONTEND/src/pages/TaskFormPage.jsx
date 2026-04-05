@@ -43,16 +43,18 @@ function TaskFormPage() {
     navigate("/tasks");
   });
   return (
-    <div>
+    <div
+      style={{ background: "var(--background-gradient)", minHeight: "100vh" }}
+    >
       <Navbar></Navbar>
       <div
         style={{
-          maxWidth: "420px",
-          margin: "48px auto",
-          padding: "32px",
+          maxWidth: "480px",
+          margin: "2rem auto",
+          padding: "1.5rem",
           border: "none",
           borderRadius: "16px",
-          background: "linear-gradient(135deg, #23272f 0%, #181a20 100%)",
+          background: "var(--nav-background)",
           boxShadow:
             "0 8px 32px rgba(0,0,0,0.32), 0 1.5px 4px rgba(0,0,0,0.18)",
         }}
@@ -64,7 +66,7 @@ function TaskFormPage() {
               display: "block",
               marginBottom: "6px",
               fontWeight: "600",
-              color: "#e0e0e0",
+              color: "var(--text-primary)",
               letterSpacing: "0.5px",
             }}
           >
@@ -82,14 +84,16 @@ function TaskFormPage() {
               marginBottom: "18px",
               borderRadius: "8px",
               border: "1.5px solid #444950",
-              background: "#23272f",
-              color: "#f5f5f5",
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
               fontSize: "1rem",
               transition: "border 0.2s, background 0.2s",
               outline: "none",
               boxSizing: "border-box",
             }}
-            onFocus={(e) => (e.target.style.border = "1.5px solid #888")}
+            onFocus={(e) =>
+              (e.target.style.border = "1.5px solid var(--accent-color-2)")
+            }
             onBlur={(e) => (e.target.style.border = "1.5px solid #444950")}
           />
           <label
@@ -98,7 +102,7 @@ function TaskFormPage() {
               display: "block",
               marginBottom: "6px",
               fontWeight: "600",
-              color: "#e0e0e0",
+              color: "var(--text-primary)",
               letterSpacing: "0.5px",
             }}
           >
@@ -115,24 +119,26 @@ function TaskFormPage() {
               marginBottom: "22px",
               borderRadius: "8px",
               border: "1.5px solid #444950",
-              background: "#23272f",
-              color: "#f5f5f5",
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
               fontSize: "1rem",
               resize: "vertical",
               transition: "border 0.2s, background 0.2s",
               outline: "none",
               boxSizing: "border-box",
             }}
-            onFocus={(e) => (e.target.style.border = "1.5px solid #888")}
+            onFocus={(e) =>
+              (e.target.style.border = "1.5px solid var(--accent-color-2)")
+            }
             onBlur={(e) => (e.target.style.border = "1.5px solid #444950")}
           ></textarea>
           <label
-            htmlFor="descripcion"
+            htmlFor="date"
             style={{
               display: "block",
               marginBottom: "6px",
               fontWeight: "600",
-              color: "#e0e0e0",
+              color: "var(--text-primary)",
               letterSpacing: "0.5px",
             }}
           >
@@ -142,14 +148,18 @@ function TaskFormPage() {
             type="date"
             {...register("date")}
             className="w-full p-2 mb-4 rounded-lg border border-gray-600 bg-gray-800 text-white text-sm focus:border-blue-500 focus:outline-none"
+            style={{
+              background: "var(--dark-background)",
+              color: "var(--text-primary)",
+            }}
           ></input>
           <button
             navigate="/tasks"
             style={{
               width: "100%",
               padding: "12px",
-              background: "linear-gradient(90deg, #111217 60%, #23272f 100%)",
-              color: "#f5f5f5",
+              background: "var(--accent-gradient)",
+              color: "var(--dark-background)",
               border: "none",
               borderRadius: "8px",
               fontWeight: "bold",
@@ -159,14 +169,6 @@ function TaskFormPage() {
               boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
               transition: "background 0.2s, transform 0.1s",
             }}
-            onMouseOver={(e) =>
-              (e.target.style.background =
-                "linear-gradient(90deg, #23272f 60%, #444950 100%)")
-            }
-            onMouseOut={(e) =>
-              (e.target.style.background =
-                "linear-gradient(90deg, #111217 60%, #23272f 100%)")
-            }
           >
             Guardar
           </button>

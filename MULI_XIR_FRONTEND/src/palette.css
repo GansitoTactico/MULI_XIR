@@ -1,0 +1,13 @@
+:root {
+  --background-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
+  --text-primary: #fff;
+  --accent-gradient: linear-gradient(90deg, #ffb347, #ffcc33, #f7971e);
+  --text-secondary: #b0b3b8;
+  --footer-background: #18191a;
+  --footer-text: #e4e6eb;
+  --nav-background: rgba(24, 25, 26, 0.98);
+  --accent-color-1: #ffb347;
+  --accent-color-2: #ffcc33;
+  --accent-color-3: #f7971e;
+  --dark-background: #232526;
+}

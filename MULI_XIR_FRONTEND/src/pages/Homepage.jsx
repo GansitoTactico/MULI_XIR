@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import CursorFollowerModel from "../components/Comportamiento_Mulix.jsx";
 import fondoIMG from "../assets/fondoNocturno.jpg";
-import { error } from "cros/common/logger.js";
+import Navbar from "../components/Navbar.jsx";
 
 function Homepage() {
   const mainRef = useRef(null);
@@ -22,7 +22,7 @@ function Homepage() {
           { opacity: 0, transform: "translateY(40px)" },
           { opacity: 1, transform: "translateY(0)" },
         ],
-        { duration: 900, easing: "ease-out", fill: "forwards" }
+        { duration: 900, easing: "ease-out", fill: "forwards" },
       );
     }
     // Animate nav buttons with stagger
@@ -38,7 +38,7 @@ function Homepage() {
             delay: 200 + i * 120,
             fill: "forwards",
             easing: "ease-out",
-          }
+          },
         );
       }
     });
@@ -50,11 +50,11 @@ function Homepage() {
           { boxShadow: "0 8px 32px 2px #fff5, 0 4px 20px rgba(0,0,0,0.2)" },
           { boxShadow: "0 4px 20px rgba(0,0,0,0.2)" },
         ],
-        { duration: 1800, iterations: Infinity, easing: "ease-in-out" }
+        { duration: 1800, iterations: Infinity, easing: "ease-in-out" },
       );
     }
 
-    // Parallax effect
+    // Parallax effect. Consider disabling this on mobile for performance.
     const handleParallax = () => {
       const scrollY = window.scrollY;
       // Fondo imagen
@@ -74,7 +74,7 @@ function Homepage() {
     };
     window.addEventListener("scroll", handleParallax, { passive: true });
     return () => window.removeEventListener("scroll", handleParallax);
-  }, [error]);
+  }, []);
 
   return (
     <div
@@ -112,152 +112,7 @@ function Homepage() {
         </Canvas>
       </div>
 
-      <nav
-        style={{
-          width: "100%",
-          padding: "1rem 2rem",
-          background: "rgba(24,25,26,0.98)",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-          position: "sticky",
-          top: 0,
-          zIndex: 10,
-          backdropFilter: "blur(4px)",
-        }}
-      >
-        {/* ...nav content... */}
-        <div
-          style={{
-            fontWeight: "bold",
-            fontSize: "1.7rem",
-            letterSpacing: "2px",
-            background: "linear-gradient(90deg, #ffb347, #ffcc33, #f7971e)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            animation: "gradient-move 3s linear infinite alternate",
-            transition: "transform 0.35s cubic-bezier(.4,2,.6,1)",
-            cursor: "pointer",
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.transform = "translateY(-8px) scale(1.08)";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.transform = "none";
-          }}
-        >
-          MULI_XIR
-        </div>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          {/* ...buttons... */}
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <button
-              ref={buttonRefs[0]}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#fff",
-                padding: "0.5rem 1.2rem",
-                borderRadius: "20px",
-                fontSize: "1rem",
-                cursor: "pointer",
-                transition:
-                  "background 0.25s, transform 0.25s, box-shadow 0.25s, color 0.25s",
-                outline: "none",
-                position: "relative",
-                overflow: "hidden",
-                boxShadow: "0 0 0 0 #ffcc33",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.background =
-                  "linear-gradient(90deg, #ffb347, #ffcc33, #f7971e)";
-                e.target.style.color = "#232526";
-                e.target.style.transform = "scale(1.13) rotate(-2deg)";
-                e.target.style.boxShadow = "0 6px 24px 2px #ffcc3355";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.background = "none";
-                e.target.style.color = "#fff";
-                e.target.style.transform = "none";
-                e.target.style.boxShadow = "0 0 0 0 #ffcc33";
-              }}
-            >
-              Iniciar sesion
-            </button>
-          </Link>
-          <Link to="/proyectos" style={{ textDecoration: "none" }}>
-            <button
-              ref={buttonRefs[1]}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#fff",
-                padding: "0.5rem 1.2rem",
-                borderRadius: "20px",
-                fontSize: "1rem",
-                cursor: "pointer",
-                transition:
-                  "background 0.25s, transform 0.25s, box-shadow 0.25s, color 0.25s",
-                outline: "none",
-                position: "relative",
-                overflow: "hidden",
-                boxShadow: "0 0 0 0 #ffcc33",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.background =
-                  "linear-gradient(90deg, #f7971e, #ffb347)";
-                e.target.style.color = "#232526";
-                e.target.style.transform = "scale(1.13) rotate(2deg)";
-                e.target.style.boxShadow = "0 6px 24px 2px #f7971e55";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.background = "none";
-                e.target.style.color = "#fff";
-                e.target.style.transform = "none";
-                e.target.style.boxShadow = "0 0 0 0 #ffcc33";
-              }}
-            >
-              Documentacion
-            </button>
-          </Link>
-          <Link to="/contacto" style={{ textDecoration: "none" }}>
-            <button
-              ref={buttonRefs[2]}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#fff",
-                padding: "0.5rem 1.2rem",
-                borderRadius: "20px",
-                fontSize: "1rem",
-                cursor: "pointer",
-                transition:
-                  "background 0.25s, transform 0.25s, box-shadow 0.25s, color 0.25s",
-                outline: "none",
-                position: "relative",
-                overflow: "hidden",
-                boxShadow: "0 0 0 0 #ffcc33",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.background =
-                  "linear-gradient(90deg, #ffcc33, #ffb347)";
-                e.target.style.color = "#232526";
-                e.target.style.transform = "scale(1.13) rotate(-2deg)";
-                e.target.style.boxShadow = "0 6px 24px 2px #ffb34755";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.background = "none";
-                e.target.style.color = "#fff";
-                e.target.style.transform = "none";
-                e.target.style.boxShadow = "0 0 0 0 #ffcc33";
-              }}
-            >
-              Contacto
-            </button>
-          </Link>
-        </div>
-      </nav>
+      <Navbar variant="homepage" />
       <main
         ref={mainRef}
         style={{
@@ -321,7 +176,7 @@ function Homepage() {
               textAlign: "center",
             }}
           >
-            ¡Bienvenido a MULI_XIR!
+            ¡Bienvenido a MULI-XIR!
           </h1>
           <p
             style={{

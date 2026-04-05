@@ -1,0 +1,25 @@
+{
+    "name": "MULI_XIR",
+    "short_name": "MULI_XIR",
+    "Description": "MULI_XIR aplicacion web para el seguimiento de procesos agricolas.",
+    "start_url": "/MULI-XIR",
+    "theme_color": "#000000",
+    "displaty": "standalone",
+    "icons": [
+      {
+        "src": "/Mulix.png",
+        "sizes": "600x600",
+        "type": "image/png"
+      },
+      {
+        "src": "/Mulix.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/Mulix.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+}

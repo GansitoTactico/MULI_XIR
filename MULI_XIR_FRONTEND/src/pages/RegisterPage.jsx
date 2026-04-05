@@ -25,7 +25,10 @@ function RegisterPage() {
   });
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen">
+    <div
+      className="relative flex items-center justify-center min-h-screen"
+      style={{ background: "var(--background-gradient)" }}
+    >
       {/* Background image with blur */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -45,9 +48,9 @@ function RegisterPage() {
       <div className="relative z-20 w-full max-w-md bg-zinc-800/90 shadow-2xl rounded-2xl p-8 border border-zinc-700">
         <div className="flex flex-col items-center mb-6">
           <svg
-            className="w-14 h-14 mb-2 text-blue-600"
+            className="w-14 h-14 mb-2"
             fill="none"
-            stroke="currentColor"
+            stroke="var(--accent-color-2)"
             strokeWidth="2"
             viewBox="0 0 24 24"
           >
@@ -87,7 +90,7 @@ function RegisterPage() {
               id="username"
               type="text"
               {...register("username", { required: "Username is required" })}
-              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-var(--accent-color-2) transition"
               placeholder="Tu usuario"
               autoComplete="username"
             />
@@ -105,7 +108,7 @@ function RegisterPage() {
               id="email"
               type="email"
               {...register("email", { required: "Email is required" })}
-              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-var(--accent-color-2) transition"
               placeholder="ejemplo@correo.com"
               autoComplete="email"
             />
@@ -126,7 +129,7 @@ function RegisterPage() {
               id="password"
               type="password"
               {...register("password", { required: "Password is required" })}
-              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full bg-zinc-700/80 text-white px-4 py-2 rounded-md border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-var(--accent-color-2) transition"
               placeholder="********"
               autoComplete="new-password"
             />
@@ -138,7 +141,8 @@ function RegisterPage() {
           </div>
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-md mt-2 transition-colors shadow-lg"
+            className="text-white font-bold py-2 rounded-md mt-2 transition-colors shadow-lg"
+            style={{ background: "var(--accent-gradient)" }}
           >
             Registrarse
           </button>
@@ -148,7 +152,8 @@ function RegisterPage() {
             ¿Ya tienes cuenta?{" "}
             <Link
               to="/login"
-              className="text-blue-500 hover:underline font-semibold"
+              className="hover:underline font-semibold"
+              style={{ color: "var(--accent-color-2)" }}
             >
               Ingresa aquí
             </Link>

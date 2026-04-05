@@ -2,5 +2,5 @@ import app from "./app.js";
 import { connectdb } from "./db.js";
 
 connectdb();
-app.listen(4000);
-console.log('Papu servidor conectado'+ " en el puerto 4000");
+app.listen(5000);
+console.log('servidor conectado'+ " en el puerto 5000");

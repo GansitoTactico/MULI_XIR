@@ -10,7 +10,7 @@ import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 
 function IntroductionPage() {
-  const { response, getResponse } = UseLLM();
+  const { information, getResponse } = UseLLM();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [hasSeenIntro, setHasSeenIntro] = useState(() => {
@@ -20,13 +20,14 @@ function IntroductionPage() {
   });
 
   useEffect(() => {
+    getResponse();
+    console.log(information);
+    console.log(hasSeenIntro);
     if (hasSeenIntro) {
       navigate("/landing");
       return;
     }
-
-    getResponse();
-  }, [hasSeenIntro, getResponse, navigate]);
+  }, []);
 
   const handleContinue = () => {
     localStorage.setItem(`IntroductionPage_visited_${user.id}`, "true");
@@ -93,7 +94,8 @@ function IntroductionPage() {
               className="cursor-target"
               style={{
                 position: "relative",
-                height: "130px",
+                height: "90px",
+                padding: "20px",
                 borderBottom: "3px solid rgb(255, 215, 80)",
               }}
             >
@@ -104,11 +106,11 @@ function IntroductionPage() {
                 stroke={false}
                 width={true}
                 weight={true}
-                scale={false}
-                italic={true}
+                scale={true}
+                italic={false}
                 textColor="#ffffff"
                 strokeColor="#ff0000"
-                minFontSize={72}
+                minFontSize={58}
               />
             </div>
 
@@ -117,11 +119,15 @@ function IntroductionPage() {
               style={{
                 color: "white",
                 padding: "15px",
-                fontSize: "1.4rem",
+                fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
                 cursor: "default",
               }}
             >
-              <ReactMarkdown>{response}</ReactMarkdown>
+              <ReactMarkdown>
+                {information
+                  ? information.AI_Response || "No hay contenido para mostrar."
+                  : "Cargando..."}
+              </ReactMarkdown>
             </div>
             <div
               style={{
@@ -150,16 +156,16 @@ function IntroductionPage() {
                     (b.currentTarget.style.border =
                       "3px solid rgb(255, 215, 80)")(
                       (b.currentTarget.style.color = "white")(
-                        (b.currentTarget.style.transition = "all 0.5s ease")
-                      )
-                    )
+                        (b.currentTarget.style.transition = "all 0.5s ease"),
+                      ),
+                    ),
                   )
                 }
                 onMouseLeave={(b) =>
                   (b.currentTarget.style.backgroundColor = "rgb(255, 215, 80)")(
                     (b.currentTarget.style.border = "none")(
-                      (b.currentTarget.style.color = "black")
-                    )
+                      (b.currentTarget.style.color = "black"),
+                    ),
                   )
                 }
               >

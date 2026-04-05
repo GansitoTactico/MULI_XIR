@@ -24,9 +24,9 @@ const storage = multer.diskStorage({
 
 
 
-const upload = multer({ 
+const upload = multer({
   storage,
-  limits: { fileSize: 25 * 1024 * 1024 } 
+  limits: { fileSize: 25 * 1024 * 1024 }
 });
 
 router.post("/createMessage", authRequired, upload.single("image"), async (req, res) => {
@@ -36,13 +36,13 @@ router.post("/createMessage", authRequired, upload.single("image"), async (req, 
 
     if (!message || !user) {
       return res.status(400).json({ message: "Message and user are required" });
-    }   
-    const userFound = await User.findById(req.user.id);       
+    }
+    const userFound = await User.findById(req.user.id);
     console.log(userFound);
 
     const newMessage = new MessageModel({
-      user: req.user.id,   
-      username: userFound.username,   
+      user: req.user.id,
+      username: userFound.username,
       message,
       image: req.file ? `/uploads/${req.file.filename}` : null
     });
@@ -52,7 +52,7 @@ router.post("/createMessage", authRequired, upload.single("image"), async (req, 
 
   } catch (error) {
     console.error('Create message error:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       message: "Error creating message",
       error: error.message,
     });

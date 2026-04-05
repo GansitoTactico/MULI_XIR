@@ -8,13 +8,11 @@ import TextType from "../components/textoAnimado";
 //import CircularLoader from "../components/loader";
 
 function LoadingPage() {
-  const { estado } = UseLLM();
+  const { pass } = UseLLM();
   useEffect(() => {
-    estado();
+    pass;
   }),
     [];
-
-  const { pass } = UseLLM();
 
   if (pass != true) {
     return (

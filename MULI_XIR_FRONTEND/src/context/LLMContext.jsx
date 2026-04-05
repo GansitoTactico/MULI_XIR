@@ -1,5 +1,10 @@
-import { createContext, useContext, useState } from "react";
-import { CreateLLMResponse, GetLLMResponse } from "../api/LLM";
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  CreateLLMResponse,
+  GetLLMResponse,
+  CreateChatBotResponse,
+  getChatBotResponse,
+} from "../api/LLM";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const LLMContext = createContext();
@@ -14,9 +19,16 @@ export const UseLLM = () => {
 
 export const LLMProvider = ({ children }) => {
   const [data, setData] = useState(null);
-  const [response, setResponse] = useState(null);
+  const [information, setInformation] = useState([]);
   const [pass, setPass] = useState(false);
+  const [IAResponse, setIAResponse] = useState([]);
   const [pase, setPase] = useState(false);
+  const [messages, setMessage] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    console.log(information);
+  }, [information]);
 
   const createResponse = async () => {
     try {
@@ -36,7 +48,11 @@ export const LLMProvider = ({ children }) => {
   const getResponse = async () => {
     try {
       const response = await GetLLMResponse();
-      setResponse(response.data);
+      if (response.data && response.data.length > 0) {
+        setInformation(response.data[0]);
+      } else {
+        setInformation(null);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,17 +62,46 @@ export const LLMProvider = ({ children }) => {
     console.log(pase);
   };
 
+  const createChatBotResponse = async (prompt) => {
+    setLoading(true);
+    try {
+      const response = await CreateChatBotResponse(prompt);
+      setIAResponse(response.data);
+    } catch (error) {
+      console.log(error, "fallo al crear el mensaje");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getChatBotResponses = async () => {
+    setLoading(true);
+    try {
+      const response = await getChatBotResponse();
+      console.log(response.data);
+      setMessage(response.data);
+    } catch (error) {
+      console.log("fallo al obtener el mensaje del chat bot", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <LLMContext.Provider
       value={{
         pass,
+        getChatBotResponses,
+        messages,
         data,
         estado,
+        IAResponse,
         pase,
+        createChatBotResponse,
         controlador,
         createResponse,
-        response,
+        information,
         getResponse,
+        loading,
       }}
     >
       {children}

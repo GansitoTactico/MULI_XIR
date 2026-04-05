@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas Tecnológicas Utilizadas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #4f6df5 0%, #3a56d5 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .tools-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .tools-table th {
+            background-color: #4f6df5;
+            color: white;
+            text-align: left;
+            padding: 18px 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .tools-table td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #eef0f7;
+        }
+
+        .tools-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tools-table tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        .category {
+            font-weight: 700;
+            color: #3a56d5;
+            width: 150px;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: #2d3748;
+            width: 200px;
+        }
+
+        .description {
+            color: #4a5568;
+        }
+
+        .category-row {
+            background-color: #f0f3ff !important;
+            font-weight: bold;
+            color: #3a56d5;
+        }
+
+        .category-row td {
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .tools-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tools-table th,
+            .tools-table td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+
+            .category, .tool-name {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Herramientas Tecnológicas</h1>
+        <p class="subtitle">Resumen de tecnologías utilizadas en el desarrollo de la aplicación web</p>
+    </header>
+
+    <main>
+        <table class="tools-table">
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Herramienta</th>
+                    <th>Descripción / Por qué la utilizamos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Lenguajes -->
+                <tr class="category-row">
+                    <td colspan="3">Lenguajes</td>
+                </tr>
+                <tr>
+                    <td class="category">Lenguaje</td>
+                    <td class="tool-name">HTML ("Lenguaje de etiquetas")</td>
+                    <td class="description">Nos permitió estructurar los elementos de la aplicación web, como textos, componentes, contenedores, etc.</td>
+                </tr>
+                <tr>
+                    <td class="category">Lenguaje</td>
+                    <td class="tool-name">JavaScript</td>
+                    <td class="description">Nos permite programar la lógica de toda la aplicación como verificaciones, consultas, promesas y componentes reactivos.</td>
+                </tr>
+                <tr>
+                    <td class="category">Lenguaje</td>
+                    <td class="tool-name">CSS ("Hoja de estilos")</td>
+                    <td class="description">Nos permite agregar diseño a la aplicación de forma eficiente y reutilizable.</td>
+                </tr>
+                <tr>
+                    <td class="category">Lenguaje</td>
+                    <td class="tool-name">NoSQL ("Lenguaje de consultas")</td>
+                    <td class="description">Nos permitió hacer consultas básicas a la base de datos gracias a una extensión de JavaScript llamada Mongoose.</td>
+                </tr>
+
+                <!-- Frameworks -->
+                <tr class="category-row">
+                    <td colspan="3">Frameworks</td>
+                </tr>
+                <tr>
+                    <td class="category">Framework Frontend</td>
+                    <td class="tool-name">React + Vite</td>
+                    <td class="description">Este framework nos ayudó a programar de manera más eficiente el frontend de la aplicación ya que gracias a su estructura JSX ("JavaScript XML") que en pocas palabras es una extensión de JavaScript que combina su lógica con HTML para crear componentes y páginas más eficientemente.</td>
+                </tr>
+                <tr>
+                    <td class="category">Framework Backend</td>
+                    <td class="tool-name">Node.js</td>
+                    <td class="description">Con este framework logramos programar todo el backend de la aplicación utilizando JavaScript ya que este framework usa la lógica JavaScript para programar consultas en el backend lo cual nos facilita el programarlas ya que no tenemos que aprender un lenguaje extra para hacerlo si no que solamente tenemos que aprender sobre el framework en un lenguaje de previo conocimiento.</td>
+                </tr>
+                <tr>
+                    <td class="category">Framework CSS</td>
+                    <td class="tool-name">Tailwind CSS</td>
+                    <td class="description">Este framework fue muy útil a la hora de diseñar ya que este framework permite crear diseño de manera más eficiente utilizando clases ya predeterminadas que se añaden directamente al documento JSX, facilitando la creación de aplicación web reactiva.</td>
+                </tr>
+
+                <!-- Herramientas de desarrollo -->
+                <tr class="category-row">
+                    <td colspan="3">Herramientas de Desarrollo</td>
+                </tr>
+                <tr>
+                    <td class="category">Editor de código</td>
+                    <td class="tool-name">Visual Studio Code + Extensiones</td>
+                    <td class="description">Para codificar toda la aplicación.</td>
+                </tr>
+                <tr>
+                    <td class="category">Control de versiones</td>
+                    <td class="tool-name">GitHub</td>
+                    <td class="description">La más popular para administrar las versiones de la aplicación y la más fácil para mandar el proyecto directamente a producción. Permite guardar un proyecto entero en un repositorio en línea y actualizarlo las veces que quieras y regresar a versiones anteriores por posibles fallos.</td>
+                </tr>
+
+                <!-- Herramientas de diseño -->
+                <tr class="category-row">
+                    <td colspan="3">Herramientas de Diseño</td>
+                </tr>
+                <tr>
+                    <td class="category">Diseño gráfico</td>
+                    <td class="tool-name">Canva</td>
+                    <td class="description">Lo utilizamos para la creación de diagramas de Gantt, diseños vagos de la aplicación y para la creación del cartel para prototipo.</td>
+                </tr>
+                <tr>
+                    <td class="category">Herramienta de colores</td>
+                    <td class="tool-name">HTML Colors</td>
+                    <td class="description">Lo usamos para crear la paleta de colores que utilizamos en toda la aplicación.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>Tabla resumen de herramientas tecnológicas utilizadas en el desarrollo de la aplicación web</p>
+        <p>Todas las herramientas están organizadas por categorías y explicadas según su uso en el proyecto.</p>
+    </footer>
+</body>
+</html>

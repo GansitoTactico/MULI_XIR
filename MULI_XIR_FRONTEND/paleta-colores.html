@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Colores CSS</title>
+    <style>
+        :root {
+            --background-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
+            --text-primary: #fff;
+            --accent-gradient: linear-gradient(90deg, #ffb347, #ffcc33, #f7971e);
+            --text-secondary: #b0b3b8;
+            --footer-background: #18191a;
+            --footer-text: #e4e6eb;
+            --nav-background: rgba(24, 25, 26, 0.98);
+            --accent-color-1: #ffb347;
+            --accent-color-2: #ffcc33;
+            --accent-color-3: #f7971e;
+            --dark-background: #232526;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--background-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .color-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: rgba(24, 25, 26, 0.7);
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-value {
+            font-family: monospace;
+            color: var(--text-secondary);
+        }
+
+        .gradient-card {
+            grid-column: span 2;
+        }
+
+        .gradient-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color-2);
+        }
+
+        .usage-section {
+            background: rgba(24, 25, 26, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .usage-title {
+            margin-bottom: 1rem;
+            color: var(--accent-color-2);
+        }
+
+        .usage-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-color-1);
+        }
+
+        .usage-code {
+            background: rgba(35, 37, 38, 0.8);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            color: var(--footer-text);
+        }
+
+        @media (max-width: 768px) {
+            .gradient-card {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Paleta de Colores CSS</h1>
+
+        <h2 class="category-title">Colores de Acento</h2>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--accent-color-1);">--accent-color-1</div>
+                <div class="color-info">
+                    <div class="color-name">Acento Naranja Claro</div>
+                    <div class="color-value">#ffb347</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--accent-color-2); color: #333;">--accent-color-2</div>
+                <div class="color-info">
+                    <div class="color-name">Acento Amarillo Dorado</div>
+                    <div class="color-value">#ffcc33</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--accent-color-3);">--accent-color-3</div>
+                <div class="color-info">
+                    <div class="color-name">Acento Naranja Oscuro</div>
+                    <div class="color-value">#f7971e</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Colores de Texto</h2>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--text-primary); color: #333;">--text-primary</div>
+                <div class="color-info">
+                    <div class="color-name">Texto Principal</div>
+                    <div class="color-value">#fff</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--text-secondary);">--text-secondary</div>
+                <div class="color-info">
+                    <div class="color-name">Texto Secundario</div>
+                    <div class="color-value">#b0b3b8</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--footer-text); color: #333;">--footer-text</div>
+                <div class="color-info">
+                    <div class="color-name">Texto del Pie</div>
+                    <div class="color-value">#e4e6eb</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Colores de Fondo</h2>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--dark-background);">--dark-background</div>
+                <div class="color-info">
+                    <div class="color-name">Fondo Oscuro</div>
+                    <div class="color-value">#232526</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--footer-background);">--footer-background</div>
+                <div class="color-info">
+                    <div class="color-name">Fondo del Pie</div>
+                    <div class="color-value">#18191a</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--nav-background);">--nav-background</div>
+                <div class="color-info">
+                    <div class="color-name">Fondo de Navegación</div>
+                    <div class="color-value">rgba(24, 25, 26, 0.98)</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Gradientes</h2>
+        <div class="color-grid">
+            <div class="color-card gradient-card">
+                <div class="gradient-swatch" style="background: var(--background-gradient);">--background-gradient</div>
+                <div class="color-info">
+                    <div class="color-name">Gradiente de Fondo</div>
+                    <div class="color-value">linear-gradient(135deg, #232526 0%, #414345 100%)</div>
+                </div>
+            </div>
+
+            <div class="color-card gradient-card">
+                <div class="gradient-swatch" style="background: var(--accent-gradient); color: #333;">--accent-gradient</div>
+                <div class="color-info">
+                    <div class="color-name">Gradiente de Acento</div>
+                    <div class="color-value">linear-gradient(90deg, #ffb347, #ffcc33, #f7971e)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="usage-section">
+            <h2 class="usage-title">Uso de la Paleta</h2>
+            <div class="usage-item">
+                <p>Para usar estos colores en tu CSS, simplemente referencia las variables CSS definidas en :root:</p>
+                <div class="usage-code">color: var(--text-primary);</div>
+            </div>
+
+            <div class="usage-item">
+                <p>Para los gradientes:</p>
+                <div class="usage-code">background: var(--background-gradient);</div>
+            </div>
+
+            <div class="usage-item">
+                <p>Puedes usar los colores de acento para botones, enlaces y elementos destacados:</p>
+                <div class="usage-code">background-color: var(--accent-color-2);</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

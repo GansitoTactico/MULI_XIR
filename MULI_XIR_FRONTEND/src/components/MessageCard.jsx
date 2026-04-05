@@ -1,16 +1,17 @@
 function MessageCard({ res }) {
   if (!res) return null;
 
-  const BASE_URL = "http://localhost:4000";
+  const BASE_URL = "http://localhost:5000";
 
   return (
     <div
       className="card"
       style={{
         padding: "1.5rem",
-        backgroundColor: "#090114",
+        backgroundColor: "#121212",
         borderRadius: "12px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 10px 8px rgba(0, 0, 0, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.1)", // Agregado borde blanco sutil
         margin: "1rem 0",
         maxWidth: "600px",
         transition: "transform 0.2s ease",
@@ -24,6 +25,11 @@ function MessageCard({ res }) {
         style={{
           fontSize: "1rem",
           lineHeight: "1.5",
+          width: "100%",
+          padding: "1rem",
+          borderRadius: "8px",
+          background: "rgba(26, 26, 26, 0.95)",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.15)",
           color: "#ffffff",
           margin: "0 0 1rem 0",
           fontFamily: "system-ui, -apple-system, sans-serif",
@@ -49,9 +55,14 @@ function MessageCard({ res }) {
       )}
       <p
         style={{
+          width: "100%",
+          padding: "1rem",
+          borderRadius: "8px",
+          background: "rgba(26, 26, 26, 0.95)",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.15)",
           fontSize: "1rem",
           lineHeight: "1.5",
-          color: "#D6AF3C",
+          color: "#ffd700",
         }}
       >
         Usuario: {res.username}

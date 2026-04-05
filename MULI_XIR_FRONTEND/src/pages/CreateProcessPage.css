@@ -1,0 +1,270 @@
+/* src/pages/CreateProcessPage.css */
+
+.process-creator-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.creator-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 1rem;
+}
+
+.creator-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4dd0e1; /* Cyan accent */
+}
+
+.creator-header p {
+  font-size: 1.1rem;
+  color: #b0bec5; /* Blue Grey */
+}
+
+.error-message {
+  background-color: #ff5252; /* Red accent */
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.process-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #cfd8dc; /* Lighter Blue Grey */
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #546e7a; /* Darker Blue Grey */
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  color: #eceff1;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4dd0e1;
+  box-shadow: 0 0 0 3px rgba(77, 208, 225, 0.2);
+}
+
+.form-group small {
+  margin-top: 0.5rem;
+  color: #90a4ae;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #26c6da, #00acc1);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 172, 193, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #546e7a;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Vista de Proceso Creado --- */
+
+.process-created {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.success-header h2 {
+  color: #69f0ae; /* Green accent */
+  font-size: 2rem;
+}
+
+.btn-secondary {
+  background-color: #78909c;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #90a4ae;
+}
+
+.process-info-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #4dd0e1;
+}
+
+.process-code {
+  background-color: #263238;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  color: #b9f6ca;
+}
+
+.qr-section h3, .next-steps h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.qr-section .instructions {
+  text-align: center;
+  color: #b0bec5;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.qr-card {
+  background-color: #37474f;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.qr-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.qr-header {
+  padding: 0.8rem;
+  font-weight: 700;
+  color: white;
+}
+.qr-header.producer { background-color: #43a047; } /* Green */
+.qr-header.distributor { background-color: #1e88e5; } /* Blue */
+.qr-header.store { background-color: #fb8c00; } /* Orange */
+.qr-header.client { background-color: #8e24aa; } /* Purple */
+
+.qr-image {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.qr-actions {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.btn-link, .btn-download {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-link {
+  background-color: #546e7a;
+  color: white;
+}
+.btn-link:hover {
+  background-color: #607d8b;
+}
+
+.btn-download {
+  background-color: #00897b;
+  color: white;
+}
+.btn-download:hover {
+  background-color: #009688;
+}
+
+.next-steps {
+  margin-top: 3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.next-steps ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.next-steps li {
+  margin-bottom: 0.5rem;
+  color: #cfd8dc;
+}

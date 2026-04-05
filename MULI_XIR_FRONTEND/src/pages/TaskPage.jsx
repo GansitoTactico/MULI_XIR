@@ -12,12 +12,12 @@ function TaskPage() {
 
   if (!task || task.length === 0) {
     return (
-      <div>
+      <div style={{ background: "var(--background-gradient)", minHeight: "100vh" }}>
         <Navbar></Navbar>
-        <h1 className="text-2xl text-center text-gray-300 mt-8">
+        <h1 className="text-2xl text-center mt-8" style={{ color: "var(--text-primary)" }}>
           No hay tareas disponibles
         </h1>
-        <p className="text-center text-gray-400 mt-4">
+        <p className="text-center mt-4" style={{ color: "var(--text-secondary)" }}>
           Crea una nueva tarea para comenzar.
         </p>
       </div>
@@ -25,7 +25,7 @@ function TaskPage() {
   }
 
   return (
-    <div>
+    <div style={{ background: "var(--background-gradient)", minHeight: "100vh" }}>
       <Navbar></Navbar>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
         {task.map((res) => (
